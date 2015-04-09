@@ -42,7 +42,7 @@ namespace Microsoft.AspNet.Mvc.Rendering
             [NotNull] IHtmlEncoder htmlEncoder)
         {
             _antiForgery = antiForgery;
-            var clientValidatorProviders = optionsAccessor.Options.ClientModelValidatorProviders.ToArray();
+            var clientValidatorProviders = optionsAccessor.Options.ClientModelValidatorProviders;
             _clientModelValidatorProvider = new CompositeClientModelValidatorProvider(clientValidatorProviders);
             _metadataProvider = metadataProvider;
             _urlHelper = urlHelper;

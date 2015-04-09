@@ -5,17 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Reflection;
 
 namespace Microsoft.AspNet.Mvc.ModelBinding.Validation
 {
     /// <summary>
-    /// An implementation of <see cref="IModelValidatorProvider"/> which providers validators
+    /// An implementation of <see cref="IModelValidatorProvider"/> which provides validators
     /// for attributes which derive from <see cref="ValidationAttribute"/>. It also provides
-    /// a validator for types which implement <see cref="IValidatableObject"/>. To support
-    /// client side validation, you can either register adapters through the static methods
-    /// on this class, or by having your validation attributes implement
-    /// <see cref="IClientModelValidator"/>. The logic to support <see cref="IClientModelValidator"/>
-    /// is implemented in <see cref="DataAnnotationsModelValidator"/>.
+    /// a validator for types which implement <see cref="IValidatableObject"/>.
     /// </summary>
     public class DataAnnotationsModelValidatorProvider : IModelValidatorProvider
     {

@@ -9,7 +9,7 @@ using System.Linq;
 namespace Microsoft.AspNet.Mvc.ModelBinding.Validation
 {
     /// <summary>
-    /// An implementation of <see cref="IClientModelValidatorProvider"/> which providers client validators
+    /// An implementation of <see cref="IClientModelValidatorProvider"/> which provides client validators
     /// for attributes which derive from <see cref="ValidationAttribute"/>. It also provides
     /// a validator for types which implement <see cref="IClientModelValidator"/>.
     /// The logic to support <see cref="IClientModelValidator"/>
@@ -34,20 +34,10 @@ namespace Microsoft.AspNet.Mvc.ModelBinding.Validation
         {
             foreach (var attribute in context.ValidatorMetadata.OfType<ValidationAttribute>())
             {
-                IClientModelValidator validator;
                 DataAnnotationsClientModelValidationFactory factory;
                 if (_attributeFactories.TryGetValue(attribute.GetType(), out factory))
                 {
-                    validator = factory(attribute);
-                }
-                else
-                {
-                    validator = attribute as IClientModelValidator;
-                }
-
-                if (validator != null)
-                {
-                    context.Validators.Add(validator);
+                    context.Validators.Add(factory(attribute));
                 }
             }
         }

@@ -11,14 +11,14 @@ namespace Microsoft.AspNet.Mvc.ModelBinding.Validation
     /// <summary>
     /// A generic implementation of <see cref="DataAnnotationsClientModelValidator"/>.
     /// </summary>
-    /// <typeparam name="TAttribute">An attribute which inherits <see cref="ValidationAttribute"/>.</typeparam>
+    /// <typeparam name="TAttribute">An attribute which inherits from <see cref="ValidationAttribute"/>.</typeparam>
     public abstract class DataAnnotationsClientModelValidator<TAttribute> : IClientModelValidator
         where TAttribute : ValidationAttribute
     {
         /// <summary>
         /// Create a new instance of <see cref="DataAnnotationsClientModelValidator"/>.
         /// </summary>
-        /// <param name="attribute">An attribute which inherits <see cref="ValidationAttribute"/>.</param>
+        /// <param name="attribute">An attribute which inherits from <see cref="ValidationAttribute"/>.</param>
         public DataAnnotationsClientModelValidator(TAttribute attribute)
         {
             Attribute = attribute;
